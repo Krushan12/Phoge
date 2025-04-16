@@ -1,7 +1,0 @@
-{
-  "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/(root)/page": "app/(root)/page.js",
-  "/(root)/transformations/add/[type]/page": "app/(root)/transformations/add/[type]/page.js",
-  "/(root)/credits/page": "app/(root)/credits/page.js",
-  "/(root)/profile/page": "app/(root)/profile/page.js"
-}
