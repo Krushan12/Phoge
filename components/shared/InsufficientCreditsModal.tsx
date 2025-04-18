@@ -22,7 +22,7 @@ export const InsufficientCreditsModal = () => {
       <AlertDialogContent>
         <AlertDialogHeader>
           <div className="flex-between">
-            <p className="p-16-semibold text-dark-400">Insufficient Credits</p>
+            <p className="p-16-semibold text-dark-300">Insufficient Credits</p>
             <AlertDialogCancel
               className="border-0 p-0 hover:bg-transparent"
               onClick={() => router.push("/profile")}
