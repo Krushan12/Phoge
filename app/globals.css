@@ -1,0 +1,371 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;          /* Darker background */
+    --foreground: 0 0% 98%;            /* Pure white text for good contrast */
+
+    --card: 240 10% 7%;                /* Slightly lighter than background */
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 7%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 265 80% 70%;            /* Brightened purple for better visibility */
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 240 5% 12%;           /* Darker gray */
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 5% 12%;
+    --muted-foreground: 240 5% 85%;    /* Brightened secondary text for better contrast */
+
+    --accent: 265 80% 55%;             /* Slightly darker purple but still visible */
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 90% 65%;          /* Brighter red for better visibility */
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 5% 15%;              /* Slightly lighter border for distinction */ 
+    --input: 240 5% 15%;              
+    --ring: 265 80% 70%;               /* Focus ring - Brightened purple */
+
+    --radius: 0.5rem;                  /* Standard radius */
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased; /* Added antialiased for better text rendering */
+  }
+}
+
+/* Define custom color classes */
+@layer utilities {
+  .bg-dark-600 {
+    @apply bg-zinc-800;
+  }
+  .bg-dark-700 {
+    @apply bg-zinc-900;
+  }
+  .bg-dark-800 {
+    @apply bg-zinc-950;
+  }
+  .bg-dark-900 {
+    @apply bg-black;
+  }
+  .border-dark-600 {
+    @apply border-zinc-800;
+  }
+  .border-dark-700 {
+    @apply border-zinc-900;
+  }
+  .border-dark-800 {
+    @apply border-zinc-950;
+  }
+}
+
+.auth {
+  @apply flex-center min-h-screen w-full bg-zinc-950;
+}
+
+.root {
+  @apply flex min-h-screen w-full flex-col bg-black lg:flex-row;
+}
+
+.root-container {
+  @apply mt-16 flex-1 overflow-auto py-8 lg:mt-0 lg:max-h-screen lg:py-10;
+}
+
+/* ========================================== TAILWIND STYLES */
+@layer utilities {
+  /* ===== UTILITIES */
+  .wrapper {
+    @apply max-w-5xl mx-auto px-5 md:px-10 w-full text-white p-16-regular;
+  }
+
+  .gradient-text {
+    @apply bg-purple-gradient bg-cover bg-clip-text text-transparent;
+  }
+
+  /* ===== ALIGNMENTS */
+  .flex-center {
+    @apply flex justify-center items-center;
+  }
+
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  /* ===== TYPOGRAPHY */
+  /* 44 */
+  .h1-semibold {
+    @apply text-[36px] font-semibold sm:text-[44px] leading-[120%] sm:leading-[56px];
+  }
+
+  /* 36 */
+  .h2-bold {
+    @apply text-[30px] font-bold md:text-[36px] leading-[110%];
+  }
+
+  /* 30 */
+  .h3-bold {
+    @apply font-bold text-[30px] leading-[140%];
+  }
+
+  /* 24 */
+  .p-24-bold {
+    @apply font-bold text-[24px] leading-[120%];
+  }
+
+  /* 20 */
+  .p-20-semibold {
+    @apply font-semibold text-[20px] leading-[140%];
+  }
+
+  .p-20-regular {
+    @apply font-normal text-[20px] leading-[140%];
+  }
+
+  /* 18 */
+  .p-18-semibold {
+    @apply font-semibold text-[18px] leading-[140%];
+  }
+
+  /* 16 */
+  .p-16-semibold {
+    @apply font-semibold text-[16px] leading-[140%];
+  }
+
+  .p-16-medium {
+    @apply font-medium text-[16px] leading-[140%];
+  }
+
+  .p-16-regular {
+    @apply font-normal text-[16px] leading-[140%];
+  }
+
+  /* 14 */
+  .p-14-medium {
+    @apply font-medium text-[14px] leading-[120%];
+  }
+
+  /* 10 */
+  .p-10-medium {
+    @apply font-medium text-[10px] leading-[140%];
+  }
+
+  /* =====  SHADCN OVERRIDES */
+  .button {
+    @apply py-4 px-6 flex-center gap-3 rounded-full p-16-semibold focus-visible:ring-offset-0 focus-visible:ring-transparent !important;
+  }
+
+  .dropdown-content {
+    @apply shadow-lg rounded-md overflow-hidden p-0 bg-black;
+  }
+
+  .dropdown-item {
+    @apply p-16-semibold text-white cursor-pointer transition-all px-4 py-3 rounded-none outline-none hover:border-none focus-visible:ring-transparent hover:text-white hover:bg-purple-gradient hover:bg-cover focus-visible:ring-offset-0 focus-visible:outline-none !important;
+  }
+
+  .input-field {
+    @apply rounded-[16px] border-2 border-purple-200/30 shadow-sm shadow-purple-200/15 text-white disabled:opacity-100 p-16-semibold h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent bg-zinc-950 !important;
+  }
+
+  .search-field {
+    @apply border-0 bg-transparent text-white w-full placeholder:text-gray-300 h-[50px] p-16-medium focus-visible:ring-offset-0 p-3 focus-visible:ring-transparent !important;
+  }
+
+  .submit-button {
+    @apply bg-purple-gradient bg-cover rounded-full py-4 px-6 p-16-semibold h-[50px] w-full md:h-[54px];
+  }
+
+  .select-field {
+    @apply w-full border-2 border-purple-200/30 shadow-sm shadow-purple-200/15 text-white disabled:opacity-100 p-16-semibold h-[50px] md:h-[54px] focus-visible:ring-offset-0 px-4 py-3 focus-visible:ring-transparent bg-zinc-950 !important;
+  }
+
+  .select-trigger {
+    @apply flex items-center gap-2 py-5 capitalize focus-visible:outline-none;
+  }
+
+  .select-item {
+    @apply py-3 cursor-pointer hover:bg-zinc-900 text-white;
+  }
+
+  .IconButton {
+    @apply focus-visible:ring-transparent focus:ring-offset-0 focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none !important;
+  }
+
+  .sheet-content button {
+    @apply focus:ring-0 focus-visible:ring-transparent focus:ring-offset-0 focus-visible:ring-offset-0 focus-visible:outline-none focus-visible:border-none !important;
+  }
+
+  .success-toast {
+    @apply bg-green-800 text-white;
+  }
+
+  .error-toast {
+    @apply bg-red-800 text-white;
+  }
+
+  /* Home Page */
+  .home {
+    @apply sm:flex-center hidden h-72 flex-col gap-4 rounded-[20px] border bg-banner bg-cover bg-no-repeat p-10 shadow-inner;
+  }
+
+  .home-heading {
+    @apply h1-semibold max-w-[500px] flex-wrap text-center text-white shadow-sm;
+  }
+
+  /* Credits Page */
+  .credits-list {
+    @apply mt-11 grid grid-cols-1 gap-5 sm:grid-cols-2 md:gap-9 xl:grid-cols-3;
+  }
+
+  .credits-item {
+    @apply w-full rounded-[16px] border-2 border-purple-200/30 bg-black p-8 shadow-xl shadow-purple-200/20 lg:max-w-none;
+  }
+
+  .credits-btn {
+    @apply w-full rounded-full bg-purple-500 bg-cover text-white hover:text-white;
+  }
+
+  /* Profile Page */
+  .profile {
+    @apply mt-5 flex flex-col gap-5 sm:flex-row md:mt-8 md:gap-10 ;
+  }
+
+  .profile-balance {
+    @apply w-full rounded-[16px] border-2 border-purple-200/30 bg-black p-5 shadow-lg shadow-purple-200/15 md:px-6 md:py-8;
+  }
+
+  .profile-image-manipulation {
+    @apply w-full rounded-[16px] border-2 border-purple-200/30 bg-black p-5 shadow-lg shadow-purple-200/15 md:px-6 md:py-8;
+  }
+
+  /* Transformation Details */
+  .transformation-grid {
+    @apply grid h-fit min-h-[200px] grid-cols-1 gap-5 py-8 md:grid-cols-2;
+  }
+
+  .transformation-original_image {
+    @apply h-fit min-h-72 w-full rounded-[10px] border border-dashed bg-zinc-950/40 object-cover p-2;
+  }
+
+  /* Collection Component */
+  .collection-heading {
+    @apply md:flex-between mb-6 flex flex-col gap-5 md:flex-row;
+  }
+
+  .collection-list {
+    @apply grid grid-cols-1 gap-6 sm:grid-cols-2 xl:grid-cols-3;
+  }
+
+  .collection-empty {
+    @apply flex-center h-60 w-full rounded-[10px] border border-gray-600 bg-zinc-950/40;
+  }
+
+  .collection-btn {
+    @apply button w-32 bg-purple-gradient bg-cover text-white;
+  }
+
+  .collection-card {
+    @apply flex flex-1 cursor-pointer flex-col gap-5 rounded-[16px] border-2 border-purple-200/20 bg-black p-4 shadow-xl shadow-purple-200/15 transition-all hover:shadow-purple-200/30;
+  }
+
+  /* MediaUploader Component */
+  .media-uploader_cldImage {
+    @apply h-fit min-h-72 w-full rounded-[10px] border border-dashed bg-zinc-950/40 object-cover p-2;
+  }
+
+  .media-uploader_cta {
+    @apply flex-center flex h-72 cursor-pointer flex-col gap-5 rounded-[16px] border border-dashed bg-zinc-950/40 shadow-inner;
+  }
+
+  .media-uploader_cta-image {
+    @apply rounded-[16px] bg-black p-5 shadow-sm shadow-purple-200/50;
+  }
+
+  /* Navbar Component */
+  .header {
+    @apply flex-between fixed h-16 w-full border-b-4 border-zinc-950 bg-black p-5 lg:hidden;
+  }
+
+  .header-nav_elements {
+    @apply mt-8 flex w-full flex-col items-start gap-5;
+  }
+
+  /* Search Component */
+  .search {
+    @apply flex items-center gap-2 w-full rounded-[16px] border-2 border-purple-200/30 bg-black px-4 shadow-sm shadow-purple-200/15 md:max-w-96;
+  }
+
+  /* Sidebar Component */
+  .sidebar {
+    @apply hidden h-screen w-72 bg-black p-5 shadow-md shadow-purple-200/50 lg:flex;
+  }
+
+  .sidebar-nav_elements {
+    @apply hidden w-full flex-col items-start gap-2 md:flex;
+  }
+
+  .sidebar-nav_element {
+    @apply flex-center p-16-semibold w-full whitespace-nowrap rounded-full bg-cover transition-all hover:bg-zinc-950 hover:shadow-inner;
+  }
+
+  .sidebar-link {
+    @apply p-16-semibold flex size-full gap-4 p-4 text-white;
+  }
+
+  /* TransformationForm Component */
+  .prompt-field {
+    @apply flex flex-col gap-5 lg:flex-row lg:gap-10;
+  }
+
+  .media-uploader-field {
+    @apply grid h-fit min-h-[200px] grid-cols-1 gap-5 py-4 md:grid-cols-2;
+  }
+
+  /* TransformedImage Component */
+  .download-btn {
+    @apply p-14-medium mt-2 flex items-center gap-2 px-2 text-white;
+  }
+
+  .transformed-image {
+    @apply h-fit min-h-72 w-full rounded-[10px] border border-dashed bg-zinc-950/40 object-cover p-2;
+  }
+
+  .transforming-loader {
+    @apply flex-center absolute left-[50%] top-[50%] size-full -translate-x-1/2 -translate-y-1/2 flex-col gap-2 rounded-[10px] border bg-black/95;
+  }
+
+  .transformed-placeholder {
+    @apply flex-center p-14-medium h-full min-h-72 flex-col gap-5 rounded-[16px] border border-dashed bg-zinc-950/40 shadow-inner;
+  }
+  
+  /* Custom Purple Gradient */
+  .bg-purple-gradient {
+    @apply bg-gradient-to-r from-purple-600 to-indigo-600;
+  }
+
+  img {
+    height: auto;
+    width: auto; /* Ensure width also set so aspect ratio warning is avoided */
+  }
+
+  /* =====  CLERK OVERRIDES */
+  .cl-userButtonBox {
+    display: flex;
+    flex-flow: row-reverse;
+    gap: 12px;
+  }
+
+  .cl-userButtonOuterIdentifier {
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+  }
+}
